@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!!</h1>
+    {% for i in range(rows) %}      
+    <!-- Display all the rows -->
+        {% if i % 2 == 0 %}
+        <!-- If the row is even -->
+            <div>
+                {% for ii in range(columns) %}
+                
+                    {% if ii % 2 == 0 %}
+                        <div class="box" style="display: inline-block; background-color: {{ white_color }}"></div>
+                    {% else %}
+                        <div class="box" style="display: inline-block; background-color: {{ black_color }}"></div>
+                    {% endif %}
+                
+                {% endfor %}
+            </div>
+        {% else %}
+        <!-- If the row is odd -->
+            <div>
+                {% for ii in range(columns) %}
+                
+                    {% if ii % 2 == 0 %}
+                        <div class="box" style="display: inline-block; background-color: {{ black_color }}"></div>
+                    {% else %}
+                        <div class="box" style="display: inline-block; background-color: {{ white_color }}"></div>
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
